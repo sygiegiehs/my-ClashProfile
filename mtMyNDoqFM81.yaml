@@ -1,14 +1,24 @@
-prepend-rules:
+rules:
 - DOMAIN-SUFFIX,github.com,GitHub
 - DOMAIN-SUFFIX,github.io,GitHub
 - DOMAIN-SUFFIX,githubassets.com,GitHub
 - DOMAIN-SUFFIX,githubusercontent.com,GitHub
-- 'DOMAIN,www.bing.com,Bing'
+- DOMAIN-SUFFIX,google.com,Google
+- DOMAIN-SUFFIX,youtube.com,Google
+- DOMAIN-SUFFIX,ytimg.com,Google
+- DOMAIN-SUFFIX,googlevideo.com,Google
+- DOMAIN-SUFFIX,spotify.com,Spotify
+- DOMAIN-SUFFIX,bing.com,Bing
 - DOMAIN-SUFFIX,hoyoverse.com,HoYoVerse
 - DOMAIN-SUFFIX,hoyolab.com,HoYoVerse
 - DOMAIN-SUFFIX,hoyo.link,HoYoVerse
 
-prepend-proxy-groups:
-- { name: GitHub, type: fallback, proxies: ['香港 1', '香港 2', '香港 3', '香港 4', '香港 5', '香港 6'] }
-- { name: Bing, type: fallback, proxies: ['美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6'] }
-- { name: HoYoVerse, type: url-test, proxies: ['日本 1', '日本 2', '日本 3', '日本 4', '日本 5', '日本 6'] }
+proxy-groups:
+- { name: GitHub, type: select, proxies: ['HK auto', 'US auto'] }
+- { name: Google, type: select, proxies: [DIRECT, 'HK auto', 'US auto'] }
+- { name: Spotify, type: fallback, proxies: ['美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6'] }
+- { name: Bing, type: select, proxies: [DIRECT, 'US auto'] }
+- { name: HoYoVerse, type: select, proxies: [DIRECT, 'JP auto'] }
+- { name: HK auto, type: url-test, proxies: ['香港 1', '香港 2', '香港 3', '香港 4', '香港 5', '香港 6'] }
+- { name: US auto, type: url-test, proxies: ['美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6'] }
+- { name: JP auto, type: url-test, proxies: ['日本 1', '日本 2', '日本 3', '日本 4', '日本 5', '日本 6'] }

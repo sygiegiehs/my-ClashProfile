@@ -1,3 +1,16 @@
+proxy-groups:
+- { name: GitHub, type: select, proxies: ['HK auto', 'US auto'] , icon: https://github.githubassets.com/favicons/favicon.png }
+- { name: Google, type: select, proxies: ['HK auto', 'US auto'] , icon: https://www.google.com/favicon.ico}
+- { name: Spotify, type: fallback, proxies: ['美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6'] , icon: https://www.scdn.co/i/_global/favicon.png}
+- { name: Bing, type: select, proxies: [DIRECT, 'US auto'] , icon: https://www.bing.com/sa/simg/favicon-cplt.ico}
+- { name: OpenAI, type: select, proxies: ['HK auto'] , icon: https://cdn.oaistatic.com/_next/static/media/favicon-32x32.be48395e.png}
+- { name: HoYoVerse, type: select, proxies: [DIRECT, 'JP auto'] , icon: https://www.hoyoverse.com/favicon.ico}
+- { name: PayPal, type: select, proxies: [DIRECT, HoYoVerse, 'JP auto'] , icon: https://www.paypalobjects.com/webstatic/icon/favicon.ico}
+- { name: Others, type: select, proxies: [DIRECT, 'HK auto', 'US auto']}
+- { name: HK auto, type: url-test, proxies: ['香港 1', '香港 2', '香港 3', '香港 4', '香港 5', '香港 6'] }
+- { name: US auto, type: url-test, proxies: ['美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6'] }
+- { name: JP auto, type: url-test, proxies: ['日本 1', '日本 2', '日本 3', '日本 4', '日本 5', '日本 6'] }
+
 rules:
 - DOMAIN-SUFFIX,github.com,GitHub
 - DOMAIN-SUFFIX,github.io,GitHub
@@ -8,13 +21,14 @@ rules:
 - DOMAIN-SUFFIX,ytimg.com,Google
 - DOMAIN-SUFFIX,googlevideo.com,Google
 - DOMAIN-SUFFIX,spotify.com,Spotify
-- DOMAIN-SUFFIX,bing.com,Bing
+- DOMAIN-SUFFIX,cn.bing.com,DIRECT
+- DOMAIN-SUFFIX,www.bing.com,Bing
+- DOMAIN-SUFFIX,openai.com,OpenAI
 - DOMAIN-SUFFIX,hoyoverse.com,HoYoVerse
 - DOMAIN-SUFFIX,hoyolab.com,HoYoVerse
 - DOMAIN-SUFFIX,hoyo.link,HoYoVerse
 - DOMAIN-SUFFIX,paypal.com,PayPal
 - DOMAIN-SUFFIX,paypalobjects.com,PayPal
-- DOMAIN-SUFFIX,openai.com,OpenAI
 
 - 'DOMAIN-SUFFIX,9cache.com,Others'
 - 'DOMAIN-SUFFIX,9gag.com,Others'
@@ -252,7 +266,6 @@ rules:
 - 'DOMAIN-SUFFIX,akamaitechnologies.com,Others'
 - 'DOMAIN-SUFFIX,akamaitechnologies.net,Others'
 - 'DOMAIN-SUFFIX,akamaized-staging.net,Others'
-- 'DOMAIN-SUFFIX,akamaized.net,Others'
 - 'DOMAIN-SUFFIX,akamaizercentral.com,Others'
 - 'DOMAIN-SUFFIX,akamak.com,Others'
 - 'DOMAIN-SUFFIX,akamam.com,Others'
@@ -724,15 +737,3 @@ rules:
 - 'DOMAIN-SUFFIX,go.dev,Others'
 - 'DOMAIN-SUFFIX,golang.org,Others'
 
-proxy-groups:
-- { name: GitHub, type: select, proxies: ['HK auto', 'US auto'] , icon: https://github.githubassets.com/favicons/favicon.png }
-- { name: Google, type: select, proxies: ['HK auto', 'US auto'] , icon: https://www.google.com/favicon.ico}
-- { name: Spotify, type: fallback, proxies: ['美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6'] , icon: https://www.scdn.co/i/_global/favicon.png}
-- { name: Bing, type: select, proxies: [DIRECT, 'US auto'] , icon: https://www.bing.com/sa/simg/favicon-cplt.ico}
-- { name: HoYoVerse, type: select, proxies: [DIRECT, 'JP auto'] , icon: https://www.hoyoverse.com/favicon.ico}
-- { name: PayPal, type: select, proxies: [DIRECT, HoYoVerse, 'JP auto'] , icon: https://www.paypalobjects.com/webstatic/icon/favicon.ico}
-- { name: OpenAI, type: select, proxies: ['HK auto'] , icon: https://cdn.oaistatic.com/_next/static/media/favicon-32x32.be48395e.png}
-- { name: Others, type: select, proxies: [DIRECT, 'HK auto', 'US auto']}
-- { name: HK auto, type: url-test, proxies: ['香港 1', '香港 2', '香港 3', '香港 4', '香港 5', '香港 6'] }
-- { name: US auto, type: url-test, proxies: ['美国 1', '美国 2', '美国 3', '美国 4', '美国 5', '美国 6'] }
-- { name: JP auto, type: url-test, proxies: ['日本 1', '日本 2', '日本 3', '日本 4', '日本 5', '日本 6'] }

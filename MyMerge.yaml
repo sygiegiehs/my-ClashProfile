@@ -23,6 +23,8 @@ rules:
 - DOMAIN-SUFFIX,spotify.com,Spotify
 - DOMAIN-SUFFIX,cn.bing.com,DIRECT
 - DOMAIN-SUFFIX,www.bing.com,Bing
+- DOMAIN-SUFFIX,sydney.bing.com,Bing
+- DOMAIN-SUFFIX,cdn.designerapp.osi.office.net,Bing
 - DOMAIN-SUFFIX,openai.com,OpenAI
 - DOMAIN-SUFFIX,hoyoverse.com,HoYoVerse
 - DOMAIN-SUFFIX,hoyolab.com,HoYoVerse
@@ -737,3 +739,4 @@ rules:
 - 'DOMAIN-SUFFIX,go.dev,Others'
 - 'DOMAIN-SUFFIX,golang.org,Others'
 
+# proxy-providers:

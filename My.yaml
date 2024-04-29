@@ -35,6 +35,18 @@ proxy-groups:
 
 rules:
 # Bing
+# Microsoft Edge 的新标签页中的搜索框优先使用的是 www.bing.com
+# 配合 Header Editor 使用，让该搜索框也能重定向到 cn.bing.com
+# 规则类型：重定向请求
+# 匹配类型：正则表达式
+# 匹配规则：^http(s?)://www\.bing\.com/search\?q=(.*)
+# 排除规则：（留空）
+# 执行类型：常规
+# 重定向至：https://cn.bing.com/search?q=$2
+- DOMAIN-SUFFIX,cn.bing.com,DIRECT
+- DOMAIN-SUFFIX,www.bing.com,Bing
+- DOMAIN-SUFFIX,sydney.bing.com,Bing
+- DOMAIN-SUFFIX,cdn.designerapp.osi.office.net,Bing
 - DOMAIN-SUFFIX,cn.bing.com,DIRECT
 - DOMAIN-SUFFIX,www.bing.com,Bing
 - DOMAIN-SUFFIX,sydney.bing.com,Bing

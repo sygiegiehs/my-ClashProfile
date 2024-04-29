@@ -1,7 +1,7 @@
 proxy-providers:
-  E # Hidden :
+  E:
     type: http
-    url: http://sub1. # Hidden
+    url: http://s
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -29,9 +29,9 @@ proxy-groups:
 
 - { name: Others, type: select, proxies: [DIRECT, 'HK auto', 'US auto']}
 
-- { name: HK auto, type: url-test, include-all: true, filter: "香港" }
-- { name: US auto, type: url-test, include-all: true, filter: "美国" }
-- { name: JP auto, type: url-test, include-all: true, filter: "日本" }
+- { name: HK auto, type: url-test, include-all: true, filter: "香港" , hidden: true }
+- { name: US auto, type: url-test, include-all: true, filter: "美国" , hidden: true }
+- { name: JP auto, type: url-test, include-all: true, filter: "日本" , hidden: true }
 
 rules:
 # Bing

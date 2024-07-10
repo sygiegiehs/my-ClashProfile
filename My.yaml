@@ -1,7 +1,7 @@
 proxy-providers:
-  E:
+  Airport:
     type: http
-    url: http://s
+    url: https://sub
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -70,15 +70,18 @@ rules:
 - DOMAIN-SUFFIX,paypal.com,PayPal
 - DOMAIN-SUFFIX,paypalobjects.com,PayPal
 
-# Fixed
+# Fixed 1
 - GEOIP,CN,DIRECT
 - RULE-SET,gfw,Others
 
 # Custom Others
+# 将`gfw`未收录的域名添加至此
 - DOMAIN-SUFFIX,redditspace.com,Others
 - DOMAIN-SUFFIX,shsh.host,Others
 - DOMAIN-SUFFIX,mrxiaom.top,Others
 - DOMAIN-SUFFIX,docs.advntr.dev,Others
+- DOMAIN-SUFFIX,hardwaretester.com,Others
+- DOMAIN-SUFFIX,colleges.chat,Others
 
-# Fixed
+# Fixed 2
 - MATCH,DIRECT
